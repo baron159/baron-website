@@ -1,23 +1,77 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="ScottApp">
     
     <head>
+        <meta charset="utf-8" />
+
         <title>Scott Baron</title>
         
         <link rel="stylesheet" type="text/css" href="bootstrap3/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="myStyle.css" />
         
         <script type="text/javascript" src="angular.min.js"> </script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="contentDir.js"></script>
         
     </head>
     
-    <body>
-        
-            <h2>Baron,<small class="secTitle">Scott</small></h2>
-            <h4>This site is designed to be an example of work that I have done through out my life.</h4>
-        
-        
+    <body class="defultText">
+            <div class="headTitleBack">
+                <div class="headTitle">
+                    <h2>Scott Baron</h2>
+                </div>
+                <div class="underLining"></div>
+            </div>
+            <section ng-controller="tabController as tab" id="myNav">
+                <ul class="nav nav-pills" id="navTweek">
+                    <li ng-class="{active:tab.isSelected(1)}">
+                        <a href ng-click="tab.selectTab(1)">Intent</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(2)}">
+                        <a href ng-click="tab.selectTab(2)">Schooling</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(3)}">
+                        <a href ng-click="tab.selectTab(3)">Work Experience</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(4)}">
+                        <a href ng-click="tab.selectTab(4)">Awards and Activities</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(5)}">
+                        <a href ng-click="tab.selectTab(5)">Projects</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(6)}">
+                        <a href ng-click="tab.selectTab(6)">Resume</a>
+                    </li>
+                    <li ng-class="{active:tab.isSelected(7)}">
+                        <a href ng-click="tab.selectTab(7)">Contact</a>
+                    </li>
+                </ul>
+                <div class="panel listings" ng-show="tab.isSelected(1)">
+                    <h1>Intent of this Website</h1>
+                    <website-intent></website-intent>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(2)">
+                    <h1>school</h1>
+                    <website-schooling></website-schooling>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(3)">
+                    <website-work></website-work>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(4)">
+                    <website-award></website-award>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(5)">
+                    <website-projects></website-projects>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(6)">
+                    <website-resume></website-resume>
+                </div>
+                <div class="panel listings" ng-show="tab.isSelected(7)">
+                    <website-contact></website-contact>
+                </div>
+
+            </section>
     </body>
     
 </html>
